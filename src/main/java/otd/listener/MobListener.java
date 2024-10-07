@@ -16,15 +16,12 @@
  */
 package otd.listener;
 
-import static otd.update.UpdateChecker.UPDATE_RESULT;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -43,6 +40,7 @@ import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import forge_sandbox.greymerk.roguelike.treasure.loot.BookBase;
+import net.md_5.bungee.api.ChatColor;
 import otd.config.WorldConfig;
 import otd.gui.dungeon_plot.UserTeleport;
 import otd.util.Diagnostic;
@@ -98,16 +96,6 @@ public class MobListener implements Listener {
 	public void onPlayerJoin_Updater(PlayerJoinEvent event) {
 		Player p = event.getPlayer();
 		if (p.hasPermission("oh_the_dungeons.admin")) {
-			synchronized (UPDATE_RESULT) {
-				if (UPDATE_RESULT.update_valid) {
-					p.sendMessage(ChatColor.RED + "[OP ONLY MESSAGE]" + ChatColor.GREEN
-							+ " [Oh The Dungeons You'll Go] A new version is valid on Publish Site : "
-							+ UPDATE_RESULT.update_version);
-					p.sendMessage(ChatColor.RED + "[OP ONLY MESSAGE]" + ChatColor.GREEN
-							+ "https://www.spigotmc.org/resources/oh-the-dungeons-youll-go.76437/");
-				}
-			}
-
 			if (Diagnostic.isSpawnerNotReady()
 					&& System.getProperty("IReallyKnowWhatIAmDoingForSpawnerISwear") == null) {
 				p.openBook(BOOK.get());
@@ -124,7 +112,6 @@ public class MobListener implements Listener {
 				p.sendMessage(ChatColor.GREEN + I18n.instance.User_PI_Suggest);
 		}
 	}
-//    private final static NamespacedKey root = new NamespacedKey(Main.instance, "dungeon/root");
 
 	@EventHandler
 	public void onPlayQuit(PlayerQuitEvent e) {

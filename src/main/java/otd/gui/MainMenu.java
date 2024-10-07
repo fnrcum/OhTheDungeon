@@ -26,7 +26,6 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
 import net.md_5.bungee.api.ChatColor;
 import otd.config.WorldConfig;
 import otd.gui.dungeon_plot.CreateDungeonWorld;
@@ -57,7 +56,7 @@ public class MainMenu extends Content {
 			addItem(i, dummy);
 		}
 		{
-			ItemStack is = Skull.EARTH.getItem(); /* new ItemStack(Material.MAP); */
+			ItemStack is = Skull.EARTH.getItem();
 			ItemMeta im = is.getItemMeta();
 
 			im.setDisplayName(I18n.instance.Menu1);
@@ -69,11 +68,10 @@ public class MainMenu extends Content {
 			im.setLore(lores);
 
 			is.setItemMeta(im);
-
 			addItem(1, 1, is);
 		}
 		{
-			ItemStack is = Skull.CITY.getItem(); /* new ItemStack(Material.COMPASS); */
+			ItemStack is = Skull.CITY.getItem();
 			ItemMeta im = is.getItemMeta();
 
 			im.setDisplayName(I18n.instance.Menu2);
@@ -85,11 +83,10 @@ public class MainMenu extends Content {
 			im.setLore(lores);
 
 			is.setItemMeta(im);
-
 			addItem(1, 4, is);
 		}
 		{
-			ItemStack is = Skull.TOOL.getItem(); /* new ItemStack(Material.GOLDEN_PICKAXE); */
+			ItemStack is = Skull.TOOL.getItem();
 			ItemMeta im = is.getItemMeta();
 
 			im.setDisplayName(I18n.instance.Util_Menu);
@@ -98,7 +95,6 @@ public class MainMenu extends Content {
 			im.setLore(lores);
 
 			is.setItemMeta(im);
-
 			addItem(1, 7, is);
 		}
 	}
@@ -121,7 +117,7 @@ public class MainMenu extends Content {
 		if (holder == null)
 			return;
 		if (slot == 10) {
-			WorldManager wm = new WorldManager();
+			WorldManager wm = new WorldManager(holder);
 			wm.openInventory(p);
 		}
 		if (slot == 13) {
@@ -130,10 +126,10 @@ public class MainMenu extends Content {
 				return;
 			}
 			if (WorldConfig.wc.dungeon_world.finished) {
-				RemoveDungeonWorld r = new RemoveDungeonWorld();
+				RemoveDungeonWorld r = new RemoveDungeonWorld(holder);
 				r.openInventory(p);
 			} else {
-				CreateDungeonWorld c = new CreateDungeonWorld();
+				CreateDungeonWorld c = new CreateDungeonWorld(holder);
 				c.openInventory(p);
 			}
 		}

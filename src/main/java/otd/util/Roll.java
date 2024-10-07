@@ -27,10 +27,9 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import otd.Main;
 import otd.listener.MobListener;
-import static otd.util.Skull.applyHead;
 import otd.config.WorldConfig;
 
 /**
@@ -45,18 +44,18 @@ public class Roll {
 		return createHead(WorldConfig.wc.diceUUID, WorldConfig.wc.diceTexture);
 	}
 
-	@SuppressWarnings("deprecation")
 	public static ItemStack createHead(final String uuid, final String textures) {
-		ItemStack head = new ItemStack(Material.PLAYER_HEAD);
-		SkullMeta headMeta = (SkullMeta) head.getItemMeta();
-		headMeta.setDisplayName(I18n.instance.Dice);
+		ItemStack is = Skull.DICE.getItem();
+		ItemMeta im = is.getItemMeta();
+
+		im.setDisplayName(I18n.instance.Dice);
 		List<String> lores = new ArrayList<>();
 		lores.add(I18n.instance.DiceContent);
 		lores.add(0, DICE);
-		headMeta.setLore(lores);
-		headMeta = applyHead(uuid, textures, headMeta);
-		head.setItemMeta(headMeta);
-		return head;
+		im.setLore(lores);
+
+		is.setItemMeta(im);
+		return is;
 	}
 
 	public static void registerRecipe() {

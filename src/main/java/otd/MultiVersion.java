@@ -16,16 +16,12 @@
  */
 package otd;
 
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
-import org.bukkit.entity.EntityType;
-
 import otd.nms.CompoundParse;
 import otd.nms.EquipArmour;
 import otd.nms.EquipHands;
 import otd.nms.GenerateLaterOrigin;
-import otd.nms.Get;
 import otd.nms.GetItem;
 import otd.nms.GetNBTTagCompound;
 import otd.nms.GetNBTTagList;
@@ -35,100 +31,6 @@ import otd.nms.GetSpawnPotentials;
 import otd.nms.ListParse;
 import otd.nms.PrimitiveParse;
 import otd.nms.SpawnerLightRule;
-import otd.nms.v1_14_R1.CompoundParse114R1;
-import otd.nms.v1_14_R1.EquipArmour114R1;
-import otd.nms.v1_14_R1.EquipHands114R1;
-import otd.nms.v1_14_R1.GenerateLaterOrigin114R1;
-import otd.nms.v1_14_R1.Get114R1;
-import otd.nms.v1_14_R1.GetItem114R1;
-import otd.nms.v1_14_R1.GetNBTTagCompound114R1;
-import otd.nms.v1_14_R1.GetNBTTagList114R1;
-import otd.nms.v1_14_R1.GetPotential114R1;
-import otd.nms.v1_14_R1.GetRoguelike114R1;
-import otd.nms.v1_14_R1.GetSpawnPotentials114R1;
-import otd.nms.v1_14_R1.ListParse114R1;
-import otd.nms.v1_14_R1.PrimitiveParse114R1;
-import otd.nms.v1_15_R1.CompoundParse115R1;
-import otd.nms.v1_15_R1.EquipArmour115R1;
-import otd.nms.v1_15_R1.EquipHands115R1;
-import otd.nms.v1_15_R1.GenerateLaterOrigin115R1;
-import otd.nms.v1_15_R1.Get115R1;
-import otd.nms.v1_15_R1.GetItem115R1;
-import otd.nms.v1_15_R1.GetNBTTagCompound115R1;
-import otd.nms.v1_15_R1.GetNBTTagList115R1;
-import otd.nms.v1_15_R1.GetPotential115R1;
-import otd.nms.v1_15_R1.GetRoguelike115R1;
-import otd.nms.v1_15_R1.GetSpawnPotentials115R1;
-import otd.nms.v1_15_R1.ListParse115R1;
-import otd.nms.v1_15_R1.PrimitiveParse115R1;
-import otd.nms.v1_16_R3.CompoundParse116R3;
-import otd.nms.v1_16_R3.EquipArmour116R3;
-import otd.nms.v1_16_R3.EquipHands116R3;
-import otd.nms.v1_16_R3.GenerateLaterOrigin116R3;
-import otd.nms.v1_16_R3.Get116R3;
-import otd.nms.v1_16_R3.GetItem116R3;
-import otd.nms.v1_16_R3.GetNBTTagCompound116R3;
-import otd.nms.v1_16_R3.GetNBTTagList116R3;
-import otd.nms.v1_16_R3.GetPotential116R3;
-import otd.nms.v1_16_R3.GetRoguelike116R3;
-import otd.nms.v1_16_R3.GetSpawnPotentials116R3;
-import otd.nms.v1_16_R3.ListParse116R3;
-import otd.nms.v1_16_R3.PrimitiveParse116R3;
-import otd.nms.v1_17_R1.CompoundParse117R1;
-import otd.nms.v1_17_R1.EquipArmour117R1;
-import otd.nms.v1_17_R1.EquipHands117R1;
-import otd.nms.v1_17_R1.GenerateLaterOrigin117R1;
-import otd.nms.v1_17_R1.Get117R1;
-import otd.nms.v1_17_R1.GetItem117R1;
-import otd.nms.v1_17_R1.GetNBTTagCompound117R1;
-import otd.nms.v1_17_R1.GetNBTTagList117R1;
-import otd.nms.v1_17_R1.GetPotential117R1;
-import otd.nms.v1_17_R1.GetRoguelike117R1;
-import otd.nms.v1_17_R1.GetSpawnPotentials117R1;
-import otd.nms.v1_17_R1.ListParse117R1;
-import otd.nms.v1_17_R1.PrimitiveParse117R1;
-import otd.nms.v1_18_R2.CompoundParse118R2;
-import otd.nms.v1_18_R2.EquipArmour118R2;
-import otd.nms.v1_18_R2.EquipHands118R2;
-import otd.nms.v1_18_R2.GenerateLaterOrigin118R2;
-import otd.nms.v1_18_R2.Get118R2;
-import otd.nms.v1_18_R2.GetItem118R2;
-import otd.nms.v1_18_R2.GetNBTTagCompound118R2;
-import otd.nms.v1_18_R2.GetNBTTagList118R2;
-import otd.nms.v1_18_R2.GetPotential118R2;
-import otd.nms.v1_18_R2.GetRoguelike118R2;
-import otd.nms.v1_18_R2.GetSpawnPotentials118R2;
-import otd.nms.v1_18_R2.ListParse118R2;
-import otd.nms.v1_18_R2.PrimitiveParse118R2;
-import otd.nms.v1_18_R2.SpawnerLightRule118R2;
-import otd.nms.v1_19_R3.CompoundParse119R3;
-import otd.nms.v1_19_R3.EquipArmour119R3;
-import otd.nms.v1_19_R3.EquipHands119R3;
-import otd.nms.v1_19_R3.GenerateLaterOrigin119R3;
-import otd.nms.v1_19_R3.Get119R3;
-import otd.nms.v1_19_R3.GetItem119R3;
-import otd.nms.v1_19_R3.GetNBTTagCompound119R3;
-import otd.nms.v1_19_R3.GetNBTTagList119R3;
-import otd.nms.v1_19_R3.GetPotential119R3;
-import otd.nms.v1_19_R3.GetRoguelike119R3;
-import otd.nms.v1_19_R3.GetSpawnPotentials119R3;
-import otd.nms.v1_19_R3.ListParse119R3;
-import otd.nms.v1_19_R3.PrimitiveParse119R3;
-import otd.nms.v1_19_R3.SpawnerLightRule119R3;
-import otd.nms.v1_20_R1.CompoundParse120R1;
-import otd.nms.v1_20_R1.EquipArmour120R1;
-import otd.nms.v1_20_R1.EquipHands120R1;
-import otd.nms.v1_20_R1.GenerateLaterOrigin120R1;
-import otd.nms.v1_20_R1.Get120R1;
-import otd.nms.v1_20_R1.GetItem120R1;
-import otd.nms.v1_20_R1.GetNBTTagCompound120R1;
-import otd.nms.v1_20_R1.GetNBTTagList120R1;
-import otd.nms.v1_20_R1.GetPotential120R1;
-import otd.nms.v1_20_R1.GetRoguelike120R1;
-import otd.nms.v1_20_R1.GetSpawnPotentials120R1;
-import otd.nms.v1_20_R1.ListParse120R1;
-import otd.nms.v1_20_R1.PrimitiveParse120R1;
-import otd.nms.v1_20_R1.SpawnerLightRule120R1;
 
 /**
  *
@@ -137,79 +39,12 @@ import otd.nms.v1_20_R1.SpawnerLightRule120R1;
 public class MultiVersion {
 
 	public static enum Version {
-		V1_20_R1, V1_19_R3, V1_18_R2, V1_17_R1, V1_16_R3, V1_15_R1, V1_14_R1, UNKNOWN
+		V1_21_R1, UNKNOWN
 	};
 
-	private static EntityType PIGZOMBIE = null;
-
-	public static EntityType getPigZombie() {
-		if (PIGZOMBIE == null) {
-			try {
-				PIGZOMBIE = EntityType.valueOf("ZOMBIFIED_PIGLIN");
-			} catch (IllegalArgumentException ex) {
-				PIGZOMBIE = EntityType.valueOf("PIG_ZOMBIE");
-			}
-		}
-		return PIGZOMBIE;
-	}
-
-	public static boolean is120R1() {
+	public static boolean is121R1() {
 		try {
-			Class clazz = Class.forName("org.bukkit.craftbukkit.v1_20_R1.CraftWorld");
-			return clazz != null;
-		} catch (ClassNotFoundException ex) {
-			return false;
-		}
-	}
-
-	public static boolean is119R3() {
-		try {
-			Class clazz = Class.forName("org.bukkit.craftbukkit.v1_19_R3.CraftWorld");
-			return clazz != null;
-		} catch (ClassNotFoundException ex) {
-			return false;
-		}
-	}
-
-	public static boolean is118R2() {
-		try {
-			Class clazz = Class.forName("org.bukkit.craftbukkit.v1_18_R2.CraftWorld");
-			return clazz != null;
-		} catch (ClassNotFoundException ex) {
-			return false;
-		}
-	}
-
-	public static boolean is117R1() {
-		try {
-			Class clazz = Class.forName("org.bukkit.craftbukkit.v1_17_R1.CraftWorld");
-			return clazz != null;
-		} catch (ClassNotFoundException ex) {
-			return false;
-		}
-	}
-
-	public static boolean is116R3() {
-		try {
-			Class clazz = Class.forName("net.minecraft.server.v1_16_R3.NBTTagCompound");
-			return clazz != null;
-		} catch (ClassNotFoundException ex) {
-			return false;
-		}
-	}
-
-	public static boolean is115() {
-		try {
-			Class clazz = Class.forName("net.minecraft.server.v1_15_R1.NBTTagCompound");
-			return clazz != null;
-		} catch (ClassNotFoundException ex) {
-			return false;
-		}
-	}
-
-	public static boolean is114() {
-		try {
-			Class clazz = Class.forName("net.minecraft.server.v1_14_R1.NBTTagCompound");
+			Class<?> clazz = Class.forName("org.bukkit.craftbukkit.v1_21_R1.CraftWorld");
 			return clazz != null;
 		} catch (ClassNotFoundException ex) {
 			return false;
@@ -230,15 +65,9 @@ public class MultiVersion {
 		return newBiome;
 	}
 
-	private static Boolean newPos = null;
+	private static Boolean newPos = true;
 
 	public static boolean hasExtendedPos() {
-		if (newPos != null) {
-			return newPos;
-		}
-		if (is118Plus()) {
-			newPos = true;
-		}
 		return newPos;
 	}
 
@@ -260,7 +89,7 @@ public class MultiVersion {
 	public static GetRoguelike getRoguelike = null;
 	public static GenerateLaterOrigin generateLaterOrigin = null;
 	public static GetSpawnPotentials getSpawnPotentials = null;
-	public static Get get = null;
+	//public static Get get = null;
 	public static CompoundParse compoundParse = null;
 	public static ListParse listParse = null;
 	public static PrimitiveParse primitiveParse = null;
@@ -269,119 +98,21 @@ public class MultiVersion {
 	private static BiomeHelper biomeHelper = null;
 
 	public static void init() {
-		if (MultiVersion.has3DBiome()) {
-			biomeHelper = new Biome3D();
-		} else {
-			biomeHelper = new Biome2D();
-		}
-		if (Main.version == Version.V1_14_R1) {
-			getNBTTagCompound = new GetNBTTagCompound114R1();
-			getNBTTagList = new GetNBTTagList114R1();
-			getPotential = new GetPotential114R1();
-			equipHands = new EquipHands114R1();
-			equipArmour = new EquipArmour114R1();
-			getItem = new GetItem114R1();
-			getRoguelike = new GetRoguelike114R1();
-			generateLaterOrigin = new GenerateLaterOrigin114R1();
-			getSpawnPotentials = new GetSpawnPotentials114R1();
-			get = new Get114R1();
-			compoundParse = new CompoundParse114R1();
-			listParse = new ListParse114R1();
-			primitiveParse = new PrimitiveParse114R1();
-
-		} else if (Main.version == Version.V1_15_R1) {
-			getNBTTagCompound = new GetNBTTagCompound115R1();
-			getNBTTagList = new GetNBTTagList115R1();
-			getPotential = new GetPotential115R1();
-			equipHands = new EquipHands115R1();
-			equipArmour = new EquipArmour115R1();
-			getItem = new GetItem115R1();
-			getRoguelike = new GetRoguelike115R1();
-			generateLaterOrigin = new GenerateLaterOrigin115R1();
-			getSpawnPotentials = new GetSpawnPotentials115R1();
-			get = new Get115R1();
-			compoundParse = new CompoundParse115R1();
-			listParse = new ListParse115R1();
-			primitiveParse = new PrimitiveParse115R1();
-
-		} else if (Main.version == Version.V1_16_R3) {
-			getNBTTagCompound = new GetNBTTagCompound116R3();
-			getNBTTagList = new GetNBTTagList116R3();
-			getPotential = new GetPotential116R3();
-			equipHands = new EquipHands116R3();
-			equipArmour = new EquipArmour116R3();
-			getItem = new GetItem116R3();
-			getRoguelike = new GetRoguelike116R3();
-			generateLaterOrigin = new GenerateLaterOrigin116R3();
-			getSpawnPotentials = new GetSpawnPotentials116R3();
-			get = new Get116R3();
-			compoundParse = new CompoundParse116R3();
-			listParse = new ListParse116R3();
-			primitiveParse = new PrimitiveParse116R3();
-
-		} else if (Main.version == Version.V1_17_R1) {
-			getNBTTagCompound = new GetNBTTagCompound117R1();
-			getNBTTagList = new GetNBTTagList117R1();
-			getPotential = new GetPotential117R1();
-			equipHands = new EquipHands117R1();
-			equipArmour = new EquipArmour117R1();
-			getItem = new GetItem117R1();
-			getRoguelike = new GetRoguelike117R1();
-			generateLaterOrigin = new GenerateLaterOrigin117R1();
-			getSpawnPotentials = new GetSpawnPotentials117R1();
-			get = new Get117R1();
-			compoundParse = new CompoundParse117R1();
-			listParse = new ListParse117R1();
-			primitiveParse = new PrimitiveParse117R1();
-
-		} else if (Main.version == Version.V1_18_R2) {
-			getNBTTagCompound = new GetNBTTagCompound118R2();
-			getNBTTagList = new GetNBTTagList118R2();
-			getPotential = new GetPotential118R2();
-			equipHands = new EquipHands118R2();
-			equipArmour = new EquipArmour118R2();
-			getItem = new GetItem118R2();
-			getRoguelike = new GetRoguelike118R2();
-			generateLaterOrigin = new GenerateLaterOrigin118R2();
-			getSpawnPotentials = new GetSpawnPotentials118R2();
-			get = new Get118R2();
-			compoundParse = new CompoundParse118R2();
-			listParse = new ListParse118R2();
-			primitiveParse = new PrimitiveParse118R2();
-			spawnerLightRule = new SpawnerLightRule118R2();
-
-		} else if (Main.version == Version.V1_19_R3) {
-			getNBTTagCompound = new GetNBTTagCompound119R3();
-			getNBTTagList = new GetNBTTagList119R3();
-			getPotential = new GetPotential119R3();
-			equipHands = new EquipHands119R3();
-			equipArmour = new EquipArmour119R3();
-			getItem = new GetItem119R3();
-			getRoguelike = new GetRoguelike119R3();
-			generateLaterOrigin = new GenerateLaterOrigin119R3();
-			getSpawnPotentials = new GetSpawnPotentials119R3();
-			get = new Get119R3();
-			compoundParse = new CompoundParse119R3();
-			listParse = new ListParse119R3();
-			primitiveParse = new PrimitiveParse119R3();
-			spawnerLightRule = new SpawnerLightRule119R3();
-
-		} else if (Main.version == Version.V1_20_R1) {
-			getNBTTagCompound = new GetNBTTagCompound120R1();
-			getNBTTagList = new GetNBTTagList120R1();
-			getPotential = new GetPotential120R1();
-			equipHands = new EquipHands120R1();
-			equipArmour = new EquipArmour120R1();
-			getItem = new GetItem120R1();
-			getRoguelike = new GetRoguelike120R1();
-			generateLaterOrigin = new GenerateLaterOrigin120R1();
-			getSpawnPotentials = new GetSpawnPotentials120R1();
-			get = new Get120R1();
-			compoundParse = new CompoundParse120R1();
-			listParse = new ListParse120R1();
-			primitiveParse = new PrimitiveParse120R1();
-			spawnerLightRule = new SpawnerLightRule120R1();
-		}
+		biomeHelper = new Biome3D();
+		getNBTTagCompound = new GetNBTTagCompound();
+		getNBTTagList = new GetNBTTagList();
+		getPotential = new GetPotential();
+		equipHands = new EquipHands();
+		equipArmour = new EquipArmour();
+		getItem = new GetItem();
+		getRoguelike = new GetRoguelike();
+		generateLaterOrigin = new GenerateLaterOrigin();
+		getSpawnPotentials = new GetSpawnPotentials();
+		//get = new Get120R4();
+		compoundParse = new CompoundParse();
+		listParse = new ListParse();
+		primitiveParse = new PrimitiveParse();
+		spawnerLightRule = new SpawnerLightRule();
 	}
 
 	private static interface BiomeHelper {
@@ -397,42 +128,16 @@ public class MultiVersion {
 		}
 	}
 
-	private static class Biome2D implements BiomeHelper {
-		@SuppressWarnings("deprecation")
-		public Biome getBiome(World w, int x, int z) {
-			return w.getBiome(x, z);
-		}
-	}
-
 	public static Biome getBiome(World world, int x, int z) {
 		return biomeHelper.getBiome(world, x, z);
 	}
 
 	public static int[] getWorldYRange() {
-		return is118Plus() ? new int[] { -64, 320 } : new int[] { 0, 256 };
+		return new int[] { -64, 320 };
 	}
 
 	public static boolean spawnerNeedLightUpdate() {
-		return is118Plus();
+		return true;
 	}
 
-	private static Boolean hasWaterCauldron = null;
-
-	public static boolean hasWaterCauldron() {
-		if (hasWaterCauldron != null)
-			return hasWaterCauldron;
-		try {
-			Material.valueOf("CAULDRON");
-			hasWaterCauldron = true;
-		} catch (Exception ex) {
-			hasWaterCauldron = false;
-		}
-		return hasWaterCauldron;
-	}
-
-	private static boolean is118Plus() {
-		return (Main.version == Version.V1_20_R1 ||
-				Main.version == Version.V1_19_R3 ||
-				Main.version == Version.V1_18_R2);
-	}
 }
